@@ -24,3 +24,4 @@ class InventoryAgent:
             "required_stock": round(required_stock, 2),
             "order_quantity": round(order_quantity, 2)
         }
+    

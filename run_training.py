@@ -3,6 +3,8 @@ import joblib
 from sklearn.model_selection import train_test_split
 from train_model import train_models
 from evaluate import evaluate_model
+from sklearn.preprocessing import StandardScaler
+import joblib
 
 print("Loading data...")
 
@@ -40,5 +42,9 @@ best_model = results[best_model_name][0]
 
 joblib.dump(best_model, "best_model.pkl") #saved the file into best_model.pkl
 joblib.dump(X.columns.tolist(), "columns.pkl")
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+joblib.dump(scaler, "scaler.pkl")
 print("Best Model:", best_model_name)
 print("Model saved as best_model.pkl")
